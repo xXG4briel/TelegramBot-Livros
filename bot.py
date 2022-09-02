@@ -11,7 +11,7 @@ def main():
 
     while True:
         updater.bot.send_message(-682460728, "Olá")
-        sleep(1)
+        sleep(3600)
     # updater.idle()
 
 
