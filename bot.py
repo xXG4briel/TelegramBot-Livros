@@ -22,7 +22,7 @@ def weather(bot, update):
     # lst = message.split(" ", 1)
     # location = lst[1]
     bot.send_message(chat_id=chat_id, text=message) # getWeather(location=str(location))
-        # sleep(1)
+    sleep(3600)
     # while True:
 
 if __name__ == "__main__":
