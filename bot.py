@@ -1,29 +1,27 @@
 from telegram.ext import Updater, CommandHandler, InlineQueryHandler, MessageHandler
-import telegram.message
 from time import sleep
+import schedule
+
+MY_TOKEN_ID = open("./BOT_INFO.txt", "r").readlines()[0].replace("\n","")
+MY_GROUP_ID = open("./BOT_INFO.txt", "r").readlines()[1]
+updater = Updater(MY_TOKEN_ID)
+
+
+def sendMessage():
+    updater.bot.send_message(MY_GROUP_ID, "Olá")
+
+# Define os horários do dia que serão mandadas a mensagem
+schedule.every().day.at("06:00").do(sendMessage)
+schedule.every().day.at("12:00").do(sendMessage)
+schedule.every().day.at("18:00").do(sendMessage)
 
 def main():
-    MY_TOKEN_ID = "5770561614:AAFuGC5eut7RwOf7UNi7_eglCVAnGjTESis"
-    updater = Updater(MY_TOKEN_ID)
-    dp = updater.dispatcher
-    # dp.add_handler(CommandHandler("clima", weather))
-    # updater.start_polling()
+    updater.start_polling()
 
     while True:
-        updater.bot.send_message(-682460728, "Olá")
-        sleep(3600)
-    # updater.idle()
+        schedule.run_pending()
+        sleep(1)
 
-
-def weather(bot, update):
-    from datetime import datetime
-    chat_id = -682460728 # update.message.chat_id
-    message = datetime.today()# str(we.message.text)
-    # lst = message.split(" ", 1)
-    # location = lst[1]
-    bot.send_message(chat_id=chat_id, text=message) # getWeather(location=str(location))
-    sleep(3600)
-    # while True:
 
 if __name__ == "__main__":
     main()
