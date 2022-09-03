@@ -13,6 +13,12 @@ def sendMessage():
 # Define os horários do dia que serão mandadas a mensagem
 schedule.every().day.at("06:00").do(sendMessage)
 schedule.every().day.at("12:00").do(sendMessage)
+schedule.every().day.at("12:00").do(sendMessage)
+schedule.every().day.at("12:41").do(sendMessage)
+schedule.every().day.at("13:00").do(sendMessage)
+schedule.every().day.at("13:10").do(sendMessage)
+schedule.every().day.at("13:20").do(sendMessage)
+schedule.every().day.at("13:30").do(sendMessage)
 schedule.every().day.at("18:00").do(sendMessage)
 
 def main():
