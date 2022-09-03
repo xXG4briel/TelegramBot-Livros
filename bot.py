@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, InlineQueryHandler, MessageHandler
+from telegram.ext import Updater #, CommandHandler, InlineQueryHandler, MessageHandler
 from time import sleep
 import schedule
 
